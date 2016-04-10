@@ -20,13 +20,8 @@ import (
 	"github.com/limetext/lime-backend/lib/log"
 	"github.com/limetext/lime-backend/lib/render"
 	_ "github.com/limetext/lime-backend/lib/sublime"
-	"github.com/limetext/lime-backend/lib/textmate"
 	"github.com/limetext/lime-backend/lib/util"
 	. "github.com/limetext/text"
-)
-
-var (
-	scheme *textmate.Theme
 )
 
 const (
@@ -339,12 +334,6 @@ func (t *qmlfrontend) loop() (err error) {
 		}
 	})
 
-	// TODO: should be done backend side
-	if sc, err := textmate.LoadTheme("../packages/TextMate-Themes/Monokai.tmTheme"); err != nil {
-		log.Error(err)
-	} else {
-		scheme = sc
-	}
 
 	ed.Init()
 
